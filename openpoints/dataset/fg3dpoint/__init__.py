@@ -1,0 +1,3 @@
+from .FG3DPointload_air import FG3DPoint_Airplane
+from .FG3DPointload_car import FG3DPoint_Car
+from .FG3DPointload_chair import FG3DPoint_Chair
