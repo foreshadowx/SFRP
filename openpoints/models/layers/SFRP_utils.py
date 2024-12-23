@@ -54,7 +54,7 @@ class FRPS(nn.Module):
         scale_factor = math.sqrt(q.shape[-2])
         attention = self.softmax(energy / scale_factor)  # (B, N, N) -> (B, N, N)
         selection = torch.sum(attention, dim=-2)  # (B, N, N) -> (B, N)
-        self.idx = selection.topk(int(self.npts_ds/2), dim=-1)[1]  # (B, N) -> (B, M)
+        self.idx = selection.topk(self.npts_ds, dim=-1)[1]  # (B, N) -> (B, M)
         # 根据索引取出对应行和列的值
         se_attention = torch.gather(attention, dim=1,
                                     index=self.idx.unsqueeze(-1).repeat(1, 1, self.idx.shape[1]))
@@ -66,9 +66,6 @@ class FRPS(nn.Module):
         return new_xyz.permute(0, 2, 1), out
 
 class HybirdRear(nn.Module):
-    """
-    给第二维做seattention
-    """
     def __init__(self, in_channel, pool_types=['avg', 'max']):
         super(HybirdRear, self).__init__()
         self.pool_types = pool_types
