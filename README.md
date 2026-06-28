@@ -15,7 +15,7 @@ Download the file from *Google Drive* or *Baidu Netdisk*.
 
 Google Drive Link: 
 
-Baidu Netdisk Link: 
+Baidu Netdisk Link: https://pan.baidu.com/s/1-5uHuWhDMDI15SBr3OZI6A 提取码: vii5
 
 ### ModelNet40
 Please refer to [PointNeXt tutorial](https://guochengqian.github.io/PointNeXt/) to download the datasets. 
